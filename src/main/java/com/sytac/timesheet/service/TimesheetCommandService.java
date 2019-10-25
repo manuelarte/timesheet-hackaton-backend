@@ -6,5 +6,5 @@ import java.time.YearMonth;
 
 public interface TimesheetCommandService {
 
-    Timesheet saveTimesheet(final YearMonth yearMonth, Timesheet timesheet);
+    Timesheet submitTimesheet(final YearMonth yearMonth, Timesheet timesheet);
 }
