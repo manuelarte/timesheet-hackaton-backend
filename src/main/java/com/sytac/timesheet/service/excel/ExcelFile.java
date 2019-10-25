@@ -9,6 +9,7 @@ import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 
 import java.io.*;
+import java.time.YearMonth;
 
 @Slf4j
 public class ExcelFile {
@@ -22,6 +23,10 @@ public class ExcelFile {
     private static final int SPEC_LEAVE_ROW = 8;
     private static final int SICKNESS_ROW = 10;
     private static final int DOCTOR_ROW = 11;
+    private static final int STANDBY_ROW = 20;
+
+    private static final int DATE_ROW = 1;
+    private static final int DATE_COL = 13;
 
     private Sheet xlsSheet;
 
@@ -35,10 +40,20 @@ public class ExcelFile {
         }
     }
 
-    public void addHours(final int day, final int hours, final HoursType type) {
+    public void addHours(final int day, final Integer hours, final HoursType type) {
+        if (hours == null || hours <= 0) {
+            return;
+        }
+
         final Row row = xlsSheet.getRow(getRowNumByType(type));
         final Cell cell = row.getCell(COLUMN_OFFSET + day);
         cell.setCellValue(hours);
+    }
+
+    public void addPeriod(final YearMonth yearMonth) {
+        final Row row = xlsSheet.getRow(DATE_ROW);
+        final Cell cell = row.getCell(DATE_COL);
+        cell.setCellValue(yearMonth.toString());
     }
 
     public void save() {
@@ -61,6 +76,7 @@ public class ExcelFile {
             case SPEC_LEAVE: return SPEC_LEAVE_ROW;
             case SICK: return SICKNESS_ROW;
             case DOCTOR: return DOCTOR_ROW;
+            case STANDBY: return STANDBY_ROW;
             default: return -1;
         }
     }
