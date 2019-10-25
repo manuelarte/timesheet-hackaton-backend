@@ -43,7 +43,7 @@ public class TimesheetQueryControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.client").value(Matchers.notNullValue()))
                 .andExpect(jsonPath("$.status").value(Matchers.is("DRAFT")))
-                .andExpect(jsonPath("$.timesheets", hasSize(yearMonth.lengthOfMonth())));;
+                .andExpect(jsonPath("$.timesheets", hasSize(yearMonth.lengthOfMonth())));
     }
 
 }

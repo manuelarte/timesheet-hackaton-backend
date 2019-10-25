@@ -2,6 +2,7 @@ package com.sytac.timesheet.service.impl;
 
 import com.sytac.timesheet.domain.dtos.Timesheet;
 import com.sytac.timesheet.domain.dtos.TimesheetEntry;
+import com.sytac.timesheet.mapper.LocalDateToTimesheetEntryMapper;
 import com.sytac.timesheet.service.TimesheetQueryService;
 import org.springframework.stereotype.Component;
 
@@ -15,7 +16,10 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 @Component
+@lombok.AllArgsConstructor
 class TimesheetQueryServiceImpl implements TimesheetQueryService {
+
+    private final List<LocalDateToTimesheetEntryMapper> mappers;
 
     @Override
     public Timesheet findByMonthYear(final YearMonth yearMonth) {
@@ -23,32 +27,16 @@ class TimesheetQueryServiceImpl implements TimesheetQueryService {
                 .mapToObj(day -> LocalDate.of(yearMonth.getYear(), yearMonth.getMonth(), day))
                 .map(map())
                 .collect(Collectors.toList());
-
-        // TODO
-        Timesheet timesheet = new Timesheet();
+        final var timesheet = new Timesheet();
         timesheet.setClient("ING");
         timesheet.setStatus(Timesheet.Status.DRAFT);
         timesheet.setTimesheets(timesheetEntries);
-
         return timesheet;
     }
 
     private Function<LocalDate, TimesheetEntry> map() {
-        return localDate -> {
-            final var timesheetEntry = new TimesheetEntry();
-            timesheetEntry.setDate(LocalDate.of(localDate.getYear(), localDate.getMonth(), localDate.getDayOfMonth()));
-            if (isWeekend().test(localDate)) {
-                // TODO
-            } else {
-                timesheetEntry.setWorked(8);
-            }
-            return timesheetEntry;
-        };
-    }
-
-    private Predicate<LocalDate> isWeekend() {
         return localDate ->
-             localDate.getDayOfWeek() == DayOfWeek.SATURDAY || localDate.getDayOfWeek() == DayOfWeek.SUNDAY;
+            mappers.stream().filter(m -> m.test(localDate)).findFirst().get().apply(localDate);
     }
 
 }
