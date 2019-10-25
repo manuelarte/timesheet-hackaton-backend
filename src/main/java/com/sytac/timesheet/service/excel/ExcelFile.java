@@ -56,15 +56,18 @@ public class ExcelFile {
         cell.setCellValue(yearMonth.toString());
     }
 
-    public void save() {
+    public String save() {
+        String fileName = null;
         try {
             final File file = File.createTempFile("timesheet", ".xls");
             final OutputStream out = new FileOutputStream(file);
             xlsSheet.getWorkbook().write(out);
+            fileName = file.getAbsolutePath();
         } catch (IOException e) {
             log.error("Unable to save XLS file", e);
         }
 
+        return fileName;
     }
 
     private int getRowNumByType(final HoursType type) {
