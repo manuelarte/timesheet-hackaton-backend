@@ -16,6 +16,8 @@ public class ExcelServiceImpl implements ExcelService {
 
         final ExcelFile file = new ExcelFile();
         file.addPeriod(yearMonth);
+        file.addCustomer(timesheet.getClient());
+        file.addConsultant("Some Hardcoded Name");
 
         for (final var entry : timesheet.getTimesheets()) {
             final int day = entry.getDate().getDayOfMonth();
