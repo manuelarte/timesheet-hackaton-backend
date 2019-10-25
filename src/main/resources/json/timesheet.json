@@ -15,11 +15,10 @@
     },
     "timesheets": {
       "type": "array",
-      "items": [
-        {
-          "$ref": "timesheetEntry.json"
-        }
-      ]
+      "items": {
+        "$ref": "timesheetEntry.json",
+        "type": "object"
+      }
     }
   }
 }

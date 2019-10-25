@@ -100,7 +100,7 @@ jsonSchema2Pojo {
 
 	// Package name used for generated Java classes (for types where a fully qualified name has not
 	// been supplied in the schema using the 'javaType' property).
-	targetPackage = ''
+	targetPackage = 'com.sytac.timesheet.domain.dtos'
 
 	// The characters that should be considered as word delimiters when creating Java Bean property
 	// names from JSON property names. If blank or not set, JSON properties will be considered to
@@ -173,10 +173,6 @@ jsonSchema2Pojo {
 	// The character encoding that should be used when writing the generated Java source files
 	outputEncoding = 'UTF-8'
 
-	// Whether to use {@link org.joda.time.DateTime} instead of {@link java.util.Date} when adding
-	// date type fields to generated Java types.
-	useJodaDates = false
-
 	// Whether to add JsonFormat annotations when using Jackson 2 that cause format "date", "time", and "date-time"
 	// fields to be formatted as yyyy-MM-dd, HH:mm:ss.SSS and yyyy-MM-dd'T'HH:mm:ss.SSSZ respectively. To customize these
 	// patterns, use customDatePattern, customTimePattern, and customDateTimePattern config options or add these inside a
@@ -196,9 +192,6 @@ jsonSchema2Pojo {
 
 	// Whether to generate constructors or not.
 	includeConstructors = false
-
-	// **EXPERIMENTAL** Whether to make the generated types Parcelable for Android
-	parcelable = false
 
 	// Whether to make the generated types Serializable
 	serializable = false
