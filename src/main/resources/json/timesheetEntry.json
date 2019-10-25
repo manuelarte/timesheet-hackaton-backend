@@ -9,31 +9,31 @@
       "format": "date"
     },
     "worked": {
-      "type": "integer"
+      "type": "number"
     },
     "internal_hours": {
-      "type": "integer"
+      "type": "number"
     },
     "courses": {
-      "type": "integer"
+      "type": "number"
     },
     "leave": {
-      "type": "integer"
+      "type": "number"
     },
     "special_leave": {
-      "type": "integer"
+      "type": "number"
     },
     "part_time_leave": {
-      "type": "integer"
+      "type": "number"
     },
     "sick": {
-      "type": "integer"
+      "type": "number"
     },
     "doctor": {
-      "type": "integer"
+      "type": "number"
     },
     "standby": {
-      "type": "integer"
+      "type": "number"
     }
   }
 }
