@@ -23,7 +23,7 @@ class TimesheetCommandServiceImpl implements TimesheetCommandService {
         // change the status to submitted
         timesheet.setStatus(Timesheet.Status.SUBMITTED);
 
-        emailService.send("manuel.doncel@sytac.io", "TEST Timesheet", "Hereby you may find blah blah", filePath);
+        emailService.send("gianluigi.disconzi@sytac.io", "TEST Timesheet", "Hereby you may find blah blah", filePath);
         return timesheet;
     }
 }

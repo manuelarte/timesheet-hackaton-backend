@@ -22,7 +22,7 @@ public class NationalHolidaysMapper implements LocalDateToTimesheetEntryMapper{
     public TimesheetEntry apply(LocalDate localDate) {
         final var timesheetEntry = new TimesheetEntry();
         timesheetEntry.setDate(LocalDate.of(localDate.getYear(), localDate.getMonth(), localDate.getDayOfMonth()));
-        timesheetEntry.setLeave(8);
+        timesheetEntry.setLeave(8D);
         return timesheetEntry;
     }
 

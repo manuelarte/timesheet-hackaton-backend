@@ -28,6 +28,12 @@ public class ExcelFile {
     private static final int DATE_ROW = 1;
     private static final int DATE_COL = 13;
 
+    private static final int CUSTOMER_ROW = 0;
+    private static final int CUSTOMER_COL = 13;
+
+    private static final int CONSULTANT_ROW = 0;
+    private static final int CONSULTANT_COL = 1;
+
     private Sheet xlsSheet;
 
     public ExcelFile() {
@@ -54,6 +60,18 @@ public class ExcelFile {
         final Row row = xlsSheet.getRow(DATE_ROW);
         final Cell cell = row.getCell(DATE_COL);
         cell.setCellValue(yearMonth.toString());
+    }
+
+    public void addCustomer(final String customerName) {
+        final Row row = xlsSheet.getRow(CUSTOMER_ROW);
+        final Cell cell = row.getCell(CUSTOMER_COL);
+        cell.setCellValue(customerName);
+    }
+
+    public void addConsultant(final String consultantFullName) {
+        final Row row = xlsSheet.getRow(CONSULTANT_ROW);
+        final Cell cell = row.getCell(CONSULTANT_COL);
+        cell.setCellValue(consultantFullName);
     }
 
     public String save() {
