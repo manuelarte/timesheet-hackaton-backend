@@ -15,7 +15,7 @@ public class WorkingDayMapper implements LocalDateToTimesheetEntryMapper{
     public TimesheetEntry apply(LocalDate localDate) {
         final var timesheetEntry = new TimesheetEntry();
         timesheetEntry.setDate(LocalDate.of(localDate.getYear(), localDate.getMonth(), localDate.getDayOfMonth()));
-        timesheetEntry.setWorked(8);
+        timesheetEntry.setWorked(8D);
         return timesheetEntry;
     }
 
