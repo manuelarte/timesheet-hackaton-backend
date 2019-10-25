@@ -7,5 +7,6 @@ public enum HoursType {
     LEAVE,
     SPEC_LEAVE,
     SICK,
-    DOCTOR
+    DOCTOR,
+    STANDBY
 }
