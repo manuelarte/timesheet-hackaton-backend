@@ -40,7 +40,7 @@ public class ExcelFile {
         }
     }
 
-    public void addHours(final int day, final Integer hours, final HoursType type) {
+    public void addHours(final int day, final Double hours, final HoursType type) {
         if (hours == null || hours <= 0) {
             return;
         }
