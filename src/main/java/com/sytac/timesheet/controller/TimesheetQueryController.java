@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.Month;
+import java.time.YearMonth;
 
 @RestController
 @RequestMapping("/api/v1/timesheet/{year}/{month}")
@@ -17,7 +18,7 @@ public class TimesheetQueryController {
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Timesheet> findByMonthYear(@PathVariable final int year, @PathVariable final Month month) {
-        return ResponseEntity.ok(timesheetQueryService.findByMonthYear(year, month));
+        return ResponseEntity.ok(timesheetQueryService.findByMonthYear(YearMonth.of(year, month)));
     }
 
 }

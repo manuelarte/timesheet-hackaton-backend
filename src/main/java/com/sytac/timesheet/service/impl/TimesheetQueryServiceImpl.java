@@ -5,12 +5,13 @@ import com.sytac.timesheet.service.TimesheetQueryService;
 import org.springframework.stereotype.Component;
 
 import java.time.Month;
+import java.time.YearMonth;
 
 @Component
 class TimesheetQueryServiceImpl implements TimesheetQueryService {
 
     @Override
-    public Timesheet findByMonthYear(int year, Month month) {
+    public Timesheet findByMonthYear(final YearMonth yearMonth) {
         // TODO
         Timesheet timesheets = new Timesheet();
         timesheets.setClient("ING");

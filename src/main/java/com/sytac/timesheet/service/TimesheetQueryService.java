@@ -2,9 +2,9 @@ package com.sytac.timesheet.service;
 
 import com.sytac.timesheet.domain.dtos.Timesheet;
 
-import java.time.Month;
+import java.time.YearMonth;
 
 public interface TimesheetQueryService {
 
-    Timesheet findByMonthYear(int year, Month month);
+    Timesheet findByMonthYear(YearMonth yearMonth);
 }
