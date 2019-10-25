@@ -1,1 +1,6 @@
-
+bamboo:
+  company:
+    name: sytac
+  api:
+    endpoints:
+      employees: "https://api.bamboohr.com/api/gateway.php/${bamboo.company.name}/v1/employees/directory"
