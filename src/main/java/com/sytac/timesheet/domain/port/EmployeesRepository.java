@@ -1,6 +1,6 @@
-package com.sytac.timesheet.core.port;
+package com.sytac.timesheet.domain.port;
 
-import com.sytac.timesheet.core.model.Employee;
+import com.sytac.timesheet.domain.model.Employee;
 
 import java.util.Optional;
 

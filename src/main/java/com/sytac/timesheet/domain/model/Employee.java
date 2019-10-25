@@ -1,4 +1,4 @@
-package com.sytac.timesheet.core.model;
+package com.sytac.timesheet.domain.model;
 
 import lombok.Value;
 
