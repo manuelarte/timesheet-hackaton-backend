@@ -1,4 +1,4 @@
-package com.sytac.timesheet.domain.model;
+package com.sytac.timesheet.domain.dtos;
 
 import java.time.LocalDate;
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -26,7 +26,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
     "doctor",
     "standby"
 })
-public class Timesheet {
+public class TimesheetEntry {
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     @JsonProperty("date")
@@ -153,7 +153,7 @@ public class Timesheet {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append(Timesheet.class.getName()).append('@').append(Integer.toHexString(System.identityHashCode(this))).append('[');
+        sb.append(TimesheetEntry.class.getName()).append('@').append(Integer.toHexString(System.identityHashCode(this))).append('[');
         sb.append("date");
         sb.append('=');
         sb.append(((this.date == null)?"<null>":this.date));
@@ -223,10 +223,10 @@ public class Timesheet {
         if (other == this) {
             return true;
         }
-        if ((other instanceof Timesheet) == false) {
+        if ((other instanceof TimesheetEntry) == false) {
             return false;
         }
-        Timesheet rhs = ((Timesheet) other);
+        TimesheetEntry rhs = ((TimesheetEntry) other);
         return (((((((((((this.date == rhs.date)||((this.date!= null)&&this.date.equals(rhs.date)))&&((this.doctor == rhs.doctor)||((this.doctor!= null)&&this.doctor.equals(rhs.doctor))))&&((this.courses == rhs.courses)||((this.courses!= null)&&this.courses.equals(rhs.courses))))&&((this.worked == rhs.worked)||((this.worked!= null)&&this.worked.equals(rhs.worked))))&&((this.standby == rhs.standby)||((this.standby!= null)&&this.standby.equals(rhs.standby))))&&((this.leave == rhs.leave)||((this.leave!= null)&&this.leave.equals(rhs.leave))))&&((this.special_leave == rhs.special_leave)||((this.special_leave!= null)&&this.special_leave.equals(rhs.special_leave))))&&((this.internal_hours == rhs.internal_hours)||((this.internal_hours!= null)&&this.internal_hours.equals(rhs.internal_hours))))&&((this.part_time_leave == rhs.part_time_leave)||((this.part_time_leave!= null)&&this.part_time_leave.equals(rhs.part_time_leave))))&&((this.sick == rhs.sick)||((this.sick!= null)&&this.sick.equals(rhs.sick))));
     }
 

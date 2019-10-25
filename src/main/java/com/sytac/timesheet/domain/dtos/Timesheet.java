@@ -1,4 +1,4 @@
-package com.sytac.timesheet.domain.model;
+package com.sytac.timesheet.domain.dtos;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -23,14 +23,14 @@ import com.fasterxml.jackson.annotation.JsonValue;
     "status",
     "timesheets"
 })
-public class Timesheets {
+public class Timesheet {
 
     @JsonProperty("client")
     private String client;
     @JsonProperty("status")
-    private Timesheets.Status status;
+    private Timesheet.Status status;
     @JsonProperty("timesheets")
-    private List<Timesheet> timesheets = new ArrayList<>();
+    private List<TimesheetEntry> timesheets = new ArrayList<>();
 
     @JsonProperty("client")
     public String getClient() {
@@ -43,29 +43,29 @@ public class Timesheets {
     }
 
     @JsonProperty("status")
-    public Timesheets.Status getStatus() {
+    public Timesheet.Status getStatus() {
         return status;
     }
 
     @JsonProperty("status")
-    public void setStatus(Timesheets.Status status) {
+    public void setStatus(Timesheet.Status status) {
         this.status = status;
     }
 
     @JsonProperty("timesheets")
-    public List<Timesheet> getTimesheets() {
+    public List<TimesheetEntry> getTimesheets() {
         return timesheets;
     }
 
     @JsonProperty("timesheets")
-    public void setTimesheets(List<Timesheet> timesheets) {
+    public void setTimesheets(List<TimesheetEntry> timesheets) {
         this.timesheets = timesheets;
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append(Timesheets.class.getName()).append('@').append(Integer.toHexString(System.identityHashCode(this))).append('[');
+        sb.append(Timesheet.class.getName()).append('@').append(Integer.toHexString(System.identityHashCode(this))).append('[');
         sb.append("client");
         sb.append('=');
         sb.append(((this.client == null)?"<null>":this.client));
@@ -100,10 +100,10 @@ public class Timesheets {
         if (other == this) {
             return true;
         }
-        if ((other instanceof Timesheets) == false) {
+        if ((other instanceof Timesheet) == false) {
             return false;
         }
-        Timesheets rhs = ((Timesheets) other);
+        Timesheet rhs = ((Timesheet) other);
         return ((((this.client == rhs.client)||((this.client!= null)&&this.client.equals(rhs.client)))&&((this.timesheets == rhs.timesheets)||((this.timesheets!= null)&&this.timesheets.equals(rhs.timesheets))))&&((this.status == rhs.status)||((this.status!= null)&&this.status.equals(rhs.status))));
     }
 
@@ -112,10 +112,10 @@ public class Timesheets {
         DRAFT("DRAFT"),
         SUBMITTED("SUBMITTED");
         private final String value;
-        private final static Map<String, Timesheets.Status> CONSTANTS = new HashMap<String, Timesheets.Status>();
+        private final static Map<String, Timesheet.Status> CONSTANTS = new HashMap<String, Timesheet.Status>();
 
         static {
-            for (Timesheets.Status c: values()) {
+            for (Timesheet.Status c: values()) {
                 CONSTANTS.put(c.value, c);
             }
         }
@@ -135,8 +135,8 @@ public class Timesheets {
         }
 
         @JsonCreator
-        public static Timesheets.Status fromValue(String value) {
-            Timesheets.Status constant = CONSTANTS.get(value);
+        public static Timesheet.Status fromValue(String value) {
+            Timesheet.Status constant = CONSTANTS.get(value);
             if (constant == null) {
                 throw new IllegalArgumentException(value);
             } else {

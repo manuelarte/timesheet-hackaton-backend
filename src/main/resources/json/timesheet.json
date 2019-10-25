@@ -1,40 +1,25 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "timesheet",
   "title": "Timesheet",
   "type": "object",
-  "javaType": "Timesheet",
   "properties": {
-    "date": {
+    "client": {
+      "type": "string"
+    },
+    "status": {
       "type": "string",
-      "format": "date"
+      "enum": [
+        "DRAFT",
+        "SUBMITTED"
+      ]
     },
-    "worked": {
-      "type": "integer"
-    },
-    "internal_hours": {
-      "type": "integer"
-    },
-    "courses": {
-      "type": "integer"
-    },
-    "leave": {
-      "type": "integer"
-    },
-    "special_leave": {
-      "type": "integer"
-    },
-    "part_time_leave": {
-      "type": "integer"
-    },
-    "sick": {
-      "type": "integer"
-    },
-    "doctor": {
-      "type": "integer"
-    },
-    "standby": {
-      "type": "integer"
+    "timesheets": {
+      "type": "array",
+      "items": [
+        {
+          "$ref": "timesheetEntry.json"
+        }
+      ]
     }
   }
 }
