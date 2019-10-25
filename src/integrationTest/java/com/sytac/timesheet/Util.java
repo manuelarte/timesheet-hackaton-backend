@@ -21,7 +21,7 @@ public class Util {
                 .mapToObj(day -> {
                     TimesheetEntry timesheetEntry = new TimesheetEntry();
                     timesheetEntry.setDate(LocalDate.of(yearMonth.getYear(), yearMonth.getMonth(), day));
-                    timesheetEntry.setWorked(8);
+                    timesheetEntry.setWorked(8D);
                     return timesheetEntry;
                 }).collect(Collectors.toList());
 

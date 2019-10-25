@@ -9,11 +9,11 @@ class ExcelFileTest {
     @Test
     void createExcelFile() {
         final ExcelFile xls = new ExcelFile();
-        xls.addHours(1, 8, WORK);
-        xls.addHours(2, 8, WORK);
-        xls.addHours(3, 8, COURSE);
-        xls.addHours(4, 4, DOCTOR);
-        xls.addHours(4, 4, WORK);
+        xls.addHours(1, 8D, WORK);
+        xls.addHours(2, 8D, WORK);
+        xls.addHours(3, 8D, COURSE);
+        xls.addHours(4, 4D, DOCTOR);
+        xls.addHours(4, 4D, WORK);
         xls.save();
 
         // then manually check the output :)
