@@ -1,119 +1,149 @@
 package com.sytac.timesheet.domain.model;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonValue;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 /**
- * Timesheets
+ * com.sytac.timesheet.domain.model.Timesheets
  * <p>
+ * 
+ * 
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
-	"client",
-	"status",
-	"timesheet"
+    "client",
+    "status",
+    "timesheets"
 })
 public class Timesheets {
 
-	@JsonProperty("client")
-	public String client;
-	@JsonProperty("status")
-	public Timesheets.Status status;
-	@JsonProperty("timesheet")
-	public List<Timesheet> timesheet = new ArrayList<>();
+    @JsonProperty("client")
+    private String client;
+    @JsonProperty("status")
+    private Timesheets.Status status;
+    @JsonProperty("timesheets")
+    private List<Timesheet> timesheets = new ArrayList<>();
 
-	@Override
-	public String toString() {
-		StringBuilder sb = new StringBuilder();
-		sb.append(Timesheets.class.getName()).append('@').append(Integer.toHexString(System.identityHashCode(this))).append('[');
-		sb.append("client");
-		sb.append('=');
-		sb.append(((this.client == null) ? "<null>" : this.client));
-		sb.append(',');
-		sb.append("status");
-		sb.append('=');
-		sb.append(((this.status == null) ? "<null>" : this.status));
-		sb.append(',');
-		sb.append("timesheet");
-		sb.append('=');
-		sb.append(((this.timesheet == null) ? "<null>" : this.timesheet));
-		sb.append(',');
-		if (sb.charAt((sb.length() - 1)) == ',') {
-			sb.setCharAt((sb.length() - 1), ']');
-		} else {
-			sb.append(']');
-		}
-		return sb.toString();
-	}
+    @JsonProperty("client")
+    public String getClient() {
+        return client;
+    }
 
-	@Override
-	public int hashCode() {
-		int result = 1;
-		result = ((result * 31) + ((this.client == null) ? 0 : this.client.hashCode()));
-		result = ((result * 31) + ((this.timesheet == null) ? 0 : this.timesheet.hashCode()));
-		result = ((result * 31) + ((this.status == null) ? 0 : this.status.hashCode()));
-		return result;
-	}
+    @JsonProperty("client")
+    public void setClient(String client) {
+        this.client = client;
+    }
 
-	@Override
-	public boolean equals(Object other) {
-		if (other == this) {
-			return true;
-		}
-		if ((other instanceof Timesheets) == false) {
-			return false;
-		}
-		Timesheets rhs = ((Timesheets) other);
-		return ((((this.client == rhs.client) || ((this.client != null) && this.client.equals(rhs.client))) &&
-			((this.timesheet == rhs.timesheet) || ((this.timesheet != null) && this.timesheet.equals(rhs.timesheet)))) &&
-			((this.status == rhs.status) || ((this.status != null) && this.status.equals(rhs.status))));
-	}
+    @JsonProperty("status")
+    public Timesheets.Status getStatus() {
+        return status;
+    }
 
-	public enum Status {
+    @JsonProperty("status")
+    public void setStatus(Timesheets.Status status) {
+        this.status = status;
+    }
 
-		DRAFT("DRAFT"),
-		SUBMITTED("SUBMITTED");
-		private final String value;
-		private final static Map<String, Status> CONSTANTS = new HashMap<String, Status>();
+    @JsonProperty("timesheets")
+    public List<Timesheet> getTimesheets() {
+        return timesheets;
+    }
 
-		static {
-			for (Timesheets.Status c : values()) {
-				CONSTANTS.put(c.value, c);
-			}
-		}
+    @JsonProperty("timesheets")
+    public void setTimesheets(List<Timesheet> timesheets) {
+        this.timesheets = timesheets;
+    }
 
-		private Status(String value) {
-			this.value = value;
-		}
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(Timesheets.class.getName()).append('@').append(Integer.toHexString(System.identityHashCode(this))).append('[');
+        sb.append("client");
+        sb.append('=');
+        sb.append(((this.client == null)?"<null>":this.client));
+        sb.append(',');
+        sb.append("status");
+        sb.append('=');
+        sb.append(((this.status == null)?"<null>":this.status));
+        sb.append(',');
+        sb.append("timesheets");
+        sb.append('=');
+        sb.append(((this.timesheets == null)?"<null>":this.timesheets));
+        sb.append(',');
+        if (sb.charAt((sb.length()- 1)) == ',') {
+            sb.setCharAt((sb.length()- 1), ']');
+        } else {
+            sb.append(']');
+        }
+        return sb.toString();
+    }
 
-		@Override
-		public String toString() {
-			return this.value;
-		}
+    @Override
+    public int hashCode() {
+        int result = 1;
+        result = ((result* 31)+((this.client == null)? 0 :this.client.hashCode()));
+        result = ((result* 31)+((this.timesheets == null)? 0 :this.timesheets.hashCode()));
+        result = ((result* 31)+((this.status == null)? 0 :this.status.hashCode()));
+        return result;
+    }
 
-		@JsonValue
-		public String value() {
-			return this.value;
-		}
+    @Override
+    public boolean equals(Object other) {
+        if (other == this) {
+            return true;
+        }
+        if ((other instanceof Timesheets) == false) {
+            return false;
+        }
+        Timesheets rhs = ((Timesheets) other);
+        return ((((this.client == rhs.client)||((this.client!= null)&&this.client.equals(rhs.client)))&&((this.timesheets == rhs.timesheets)||((this.timesheets!= null)&&this.timesheets.equals(rhs.timesheets))))&&((this.status == rhs.status)||((this.status!= null)&&this.status.equals(rhs.status))));
+    }
 
-		@JsonCreator
-		public static Timesheets.Status fromValue(String value) {
-			Timesheets.Status constant = CONSTANTS.get(value);
-			if (constant == null) {
-				throw new IllegalArgumentException(value);
-			} else {
-				return constant;
-			}
-		}
+    public enum Status {
 
-	}
+        DRAFT("DRAFT"),
+        SUBMITTED("SUBMITTED");
+        private final String value;
+        private final static Map<String, Timesheets.Status> CONSTANTS = new HashMap<String, Timesheets.Status>();
+
+        static {
+            for (Timesheets.Status c: values()) {
+                CONSTANTS.put(c.value, c);
+            }
+        }
+
+        private Status(String value) {
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+
+        @JsonValue
+        public String value() {
+            return this.value;
+        }
+
+        @JsonCreator
+        public static Timesheets.Status fromValue(String value) {
+            Timesheets.Status constant = CONSTANTS.get(value);
+            if (constant == null) {
+                throw new IllegalArgumentException(value);
+            } else {
+                return constant;
+            }
+        }
+
+    }
 
 }

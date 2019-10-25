@@ -3,6 +3,7 @@
   "$id": "timesheet",
   "title": "Timesheet",
   "type": "object",
+  "javaType": "Timesheet",
   "properties": {
     "date": {
       "type": "string",

@@ -1,14 +1,14 @@
 package com.sytac.timesheet.domain.model;
 
+import java.time.LocalDate;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
-import java.time.LocalDate;
 
 /**
- * Timesheet
+ * com.sytac.timesheet.domain.model.Timesheet
  * <p>
  * 
  * 
@@ -30,25 +30,125 @@ public class Timesheet {
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     @JsonProperty("date")
-    public LocalDate date;
+    private LocalDate date;
     @JsonProperty("worked")
-    public Integer worked;
+    private Integer worked;
     @JsonProperty("internal_hours")
-    public Integer internal_hours;
+    private Integer internal_hours;
     @JsonProperty("courses")
-    public Integer courses;
+    private Integer courses;
     @JsonProperty("leave")
-    public Integer leave;
+    private Integer leave;
     @JsonProperty("special_leave")
-    public Integer special_leave;
+    private Integer special_leave;
     @JsonProperty("part_time_leave")
-    public Integer part_time_leave;
+    private Integer part_time_leave;
     @JsonProperty("sick")
-    public Integer sick;
+    private Integer sick;
     @JsonProperty("doctor")
-    public Integer doctor;
+    private Integer doctor;
     @JsonProperty("standby")
-    public Integer standby;
+    private Integer standby;
+
+    @JsonProperty("date")
+    public LocalDate getDate() {
+        return date;
+    }
+
+    @JsonProperty("date")
+    public void setDate(LocalDate date) {
+        this.date = date;
+    }
+
+    @JsonProperty("worked")
+    public Integer getWorked() {
+        return worked;
+    }
+
+    @JsonProperty("worked")
+    public void setWorked(Integer worked) {
+        this.worked = worked;
+    }
+
+    @JsonProperty("internal_hours")
+    public Integer getInternal_hours() {
+        return internal_hours;
+    }
+
+    @JsonProperty("internal_hours")
+    public void setInternal_hours(Integer internal_hours) {
+        this.internal_hours = internal_hours;
+    }
+
+    @JsonProperty("courses")
+    public Integer getCourses() {
+        return courses;
+    }
+
+    @JsonProperty("courses")
+    public void setCourses(Integer courses) {
+        this.courses = courses;
+    }
+
+    @JsonProperty("leave")
+    public Integer getLeave() {
+        return leave;
+    }
+
+    @JsonProperty("leave")
+    public void setLeave(Integer leave) {
+        this.leave = leave;
+    }
+
+    @JsonProperty("special_leave")
+    public Integer getSpecial_leave() {
+        return special_leave;
+    }
+
+    @JsonProperty("special_leave")
+    public void setSpecial_leave(Integer special_leave) {
+        this.special_leave = special_leave;
+    }
+
+    @JsonProperty("part_time_leave")
+    public Integer getPart_time_leave() {
+        return part_time_leave;
+    }
+
+    @JsonProperty("part_time_leave")
+    public void setPart_time_leave(Integer part_time_leave) {
+        this.part_time_leave = part_time_leave;
+    }
+
+    @JsonProperty("sick")
+    public Integer getSick() {
+        return sick;
+    }
+
+    @JsonProperty("sick")
+    public void setSick(Integer sick) {
+        this.sick = sick;
+    }
+
+    @JsonProperty("doctor")
+    public Integer getDoctor() {
+        return doctor;
+    }
+
+    @JsonProperty("doctor")
+    public void setDoctor(Integer doctor) {
+        this.doctor = doctor;
+    }
+
+    @JsonProperty("standby")
+    public Integer getStandby() {
+        return standby;
+    }
+
+    @JsonProperty("standby")
+    public void setStandby(Integer standby) {
+        this.standby = standby;
+    }
 
     @Override
     public String toString() {
