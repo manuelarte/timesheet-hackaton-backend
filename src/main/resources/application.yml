@@ -2,5 +2,7 @@ bamboo:
   company:
     name: sytac
   api:
+    username: d2a0823e08211365826fc3e1a0a5e48a658af85c
+    password: x
     endpoints:
       employees: "https://api.bamboohr.com/api/gateway.php/${bamboo.company.name}/v1/employees/directory"

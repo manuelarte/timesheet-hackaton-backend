@@ -1,3 +1,6 @@
 bamboo:
   company:
     name: testapiaccount
+  api:
+    username: d2a0823e08211365826fc3e1a0a5e48a658af85c
+    password: x
