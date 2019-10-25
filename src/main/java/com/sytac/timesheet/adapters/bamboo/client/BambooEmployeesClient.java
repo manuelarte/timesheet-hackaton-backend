@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
+import java.util.Optional;
 
 @Component
 public class BambooEmployeesClient {
@@ -19,12 +20,20 @@ public class BambooEmployeesClient {
             RestTemplate restTemplate,
             @Value("${bamboo.api.endpoints.employees}") String url) {
         this.restTemplate = restTemplate;
-        this.url=url;
+        this.url = url;
     }
 
-    public List<BambooEmployee> getEmployees(){
+    public List<BambooEmployee> getEmployees() {
         final ResponseEntity<BambooEmployeesList> response = restTemplate.getForEntity(url, BambooEmployeesList.class);
-        //TODO: handle null
-        return response.getBody().getEmployees();
+        validate(response);
+        return Optional.ofNullable(response.getBody())
+                .map(BambooEmployeesList::getEmployees)
+                .orElseThrow(()->new RuntimeException("BambooEmployeesClient failed to get employees: null list"));
+    }
+
+    private void validate(ResponseEntity<BambooEmployeesList> response) {
+        final int statusCodeValue = response.getStatusCodeValue();
+        if (statusCodeValue < 200 || statusCodeValue > 299)
+            throw new RuntimeException("BambooEmployeesClient failed to get employees: Status code " + statusCodeValue);
     }
 }

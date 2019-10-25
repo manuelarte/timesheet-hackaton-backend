@@ -1,13 +1,11 @@
 package com.sytac.timesheet.adapters.bamboo;
 
 import com.sytac.timesheet.adapters.bamboo.client.BambooEmployeesClient;
-import com.sytac.timesheet.adapters.bamboo.model.BambooEmployee;
 import com.sytac.timesheet.core.model.Employee;
 import com.sytac.timesheet.core.port.EmployeesRepository;
 import lombok.val;
 import org.springframework.stereotype.Component;
 
-import java.util.Map;
 import java.util.Optional;
 
 @Component
